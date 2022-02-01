@@ -2,7 +2,7 @@
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
     "manifestVersion": "1.7",
     "version": "1.0.0",
-    "id": "1ba7f7c8-d3ed-4cb2-99a8-86a4801efd80",
+    "id": "ef2426da-767d-454a-afdb-c48b3cc6e424",
     "packageName": "HelloWorld",
     "developer": {
         "name": "bewave",
