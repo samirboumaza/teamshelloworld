@@ -1,9 +1,9 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
     "manifestVersion": "1.7",
-    "version": "1.0.0",
-    "id": "ef2426da-767d-454a-afdb-c48b3cc6e424",
-    "packageName": "HelloWorld",
+    "version": "1.0.1",
+    "id": "ef2426da-767d-454a-afdb-c48b3cc6e427",
+    "packageName": "HelloWorld_2",
     "developer": {
         "name": "bewave",
         "websiteUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/",
@@ -15,12 +15,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "HW",
-        "full": "Hello World"
+        "short": "GSKED",
+        "full": "GSKED"
     },
     "description": {
-        "short": "Hello World",
-        "full": "Hello World for testing custom app in teams"
+        "short": "GSKED",
+        "full": "Fake GSKED for testing custom app in teams"
     },
     "accentColor": "#FFFFFF",
     "configurableTabs": [

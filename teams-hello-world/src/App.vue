@@ -176,7 +176,9 @@ export default {
   },
   mounted() {
     fetch('https://graph.microsoft.com/v1.0/me')
-        .then(response => this.user = response.json())
+        .then(response => response.json())
+        .then(data => this.user = data);
+
     this.getContext()
   },
   methods: {
