@@ -18,7 +18,7 @@
               <v-list-item-title class="text-h6">
                 Sandra Adams
               </v-list-item-title>
-              <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
+              <v-list-item-subtitle>{{tabContext.userPrincipalName}}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -53,13 +53,13 @@
 
 
     <v-app-bar class='text--white text-h4 elevation-0' color="primary" app>
-      Test Teams app hello {{tabContext.userPrincipalName}}
+      Test Teams app hello
     </v-app-bar>
 
 
     <!-- Sizes your content based upon application components -->
     <v-main>
-
+      {{ tabContext }}
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
 
@@ -113,44 +113,7 @@ export default {
       microsoftTeams.getContext((context)=> {
         console.log('test')
       console.log("context :",context)
-     this.tabContext =  context || {
-          "teamId": "The Microsoft Teams ID in the format 19:[id]@thread.skype",
-            "teamName": "The name of the current team",
-            "channelId": "The channel ID in the format 19:[id]@thread.skype",
-            "channelName": "The name of the current channel",
-            "chatId": "The chat ID in the format 19:[id]@thread.skype",
-            "locale": "The current locale of the user formatted as languageId-countryId (for example, en-us)",
-            "entityId": "The developer-defined unique ID for the entity this content points to",
-            "subEntityId": "The developer-defined unique ID for the sub-entity this content points to",
-            "loginHint": "A value suitable as a login hint for Azure AD. This is usually the login name of the current user, in their home tenant",
-            "userPrincipalName": "The principal name of the current user, in the current tenant",
-            "userObjectId": "The Azure AD object id of the current user, in the current tenant",
-            "tid": "The Azure AD tenant ID of the current user",
-            "groupId": "Guid identifying the current O365 Group ID",
-            "theme": "The current UI theme: default | dark | contrast",
-            "isFullScreen": "Indicates if the tab is in full-screen",
-            "teamType": "The type of team",
-            "teamSiteUrl": "The root SharePoint site associated with the team",
-            "teamSiteDomain": "The domain of the root SharePoint site associated with the team",
-            "teamSitePath": "The relative path to the SharePoint site associated with the team",
-            "channelRelativeUrl": "The relative path to the SharePoint folder associated with the channel",
-            "sessionId": "The unique ID for the current Teams session for use in correlating telemetry data",
-            "userTeamRole": "The user's role in the team",
-            "isTeamArchived": "Indicates if team is archived",
-            "hostClientType": "The type of host client. Possible values are android, ios, web, desktop, rigel",
-            "frameContext": "The context where tab URL is loaded (for example, content, task, setting, remove, sidePanel)",
-            "sharepoint": "The SharePoint context is available only when hosted in SharePoint",
-            "tenantSKU": "The license type for the current user tenant. Possible values are enterprise, free, edu, unknown",
-            "userLicenseType": "The license type for the current user",
-            "parentMessageId": "The parent message ID from which this task module is launched",
-            "ringId": "The current ring ID",
-            "appSessionId": "The unique ID for the current session used for correlating telemetry data",
-            "isCallingAllowed": "Indicates if calling is allowed for the current logged in user",
-            "isPSTNCallingAllowed": "Indicates if PSTN calling is allowed for the current logged in user",
-            "meetingId": "The meeting ID used by tab when running in meeting context",
-            "defaultOneNoteSectionId": "The OneNote section ID that is linked to the channel",
-            "isMultiWindow": "The indication whether the tab is in a pop out window"
-        }
+     this.tabContext =  context
 
 
       })  }
