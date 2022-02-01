@@ -52,8 +52,8 @@
     </v-card>
 
 
-    <v-app-bar class='text--white text-h4 elevation-0' color="primary" app>
-      Test Teams app hello
+    <v-app-bar class='text-h4 elevation-0' color="primary" app>
+      Test Teams app
     </v-app-bar>
 
 
@@ -62,13 +62,27 @@
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
 
-      <v-card>
+      <v-card color="grey lighten-2" class="pa-3">
         <v-card-title>
           To do list
         </v-card-title>
         <v-card-subtitle>draft version</v-card-subtitle>
 
-        <v-card>
+
+        <v-card class="mb-4" v-for="(task, index) in taskList" :key="index">
+          <v-card-title class="d-flex justify-space-between ">
+            <span class="d-flex" :class="{'text-decoration-line-through': task.done}">  {{ task.task }} </span>
+            <div class="d-flex">
+              <v-checkbox v-model="task.done" hide-details class="ma-0"></v-checkbox>
+              <v-btn icon small>
+                <v-icon @click="taskList.splice(index, 1)">
+                  mdi-close
+                </v-icon>
+
+              </v-btn>
+            </div>
+          </v-card-title>
+
           <v-card-actions></v-card-actions>
         </v-card>
 
@@ -90,6 +104,14 @@ export default {
   name: "App",
   data() {
     return {
+      taskList:[
+        {"task":"HTML I","done":true},
+        {"task":"CSS","done":true},
+        {"task":"Responsive design","done":true},
+        {"task":"Git","done":true},
+        {"task":"JavaScript I","done":true},
+        {"task":"JavaScript II","done":false}
+      ],
       tabContext:{},
       drawer: false,
       items: [
