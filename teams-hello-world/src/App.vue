@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container fluid class="fill-height pl-0" style="background-color: blue">
+    <v-container fluid class="fill-height pl-0">
     <v-card class="fill-height rounded-sm mt-13">
       <v-navigation-drawer
           permanent
