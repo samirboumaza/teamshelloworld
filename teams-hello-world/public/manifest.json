@@ -3,29 +3,29 @@
     "manifestVersion": "1.7",
     "version": "1.0.0",
     "id": "1ba7f7c8-d3ed-4cb2-99a8-86a4801efd80",
-    "packageName": "mlestimate",
+    "packageName": "HelloWorld",
     "developer": {
-        "name": "medialesson",
+        "name": "bewave",
         "websiteUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/",
-        "privacyUrl": "https://www.media-lesson.com/de/datenschutz.html",
-        "termsOfUseUrl": "https://www.media-lesson.com/de/impressum.html"
+        "privacyUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/",
+        "termsOfUseUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/"
     },
     "icons": {
         "color": "color.png",
         "outline": "outline.png"
     },
     "name": {
-        "short": "mlEstimate",
-        "full": "ml Estimate"
+        "short": "HW",
+        "full": "Hello World"
     },
     "description": {
-        "short": "ml Estimate",
-        "full": "This is for doing the estimation easily"
+        "short": "Hello World",
+        "full": "Hello World for testing custom app in teams"
     },
     "accentColor": "#FFFFFF",
     "configurableTabs": [
         {
-            "configurationUrl": "https://ml-estimate-app.azurewebsites.net/config.html",
+            "configurationUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/config.html",
             "canUpdateConfiguration": true,
             "scopes": [
                 "team"
