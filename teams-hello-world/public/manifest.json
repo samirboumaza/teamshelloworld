@@ -1,8 +1,8 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.7",
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.11",
     "version": "1.0.1",
-    "id": "ef2426da-767d-454a-afdb-c48b3cc6e427",
+    "id": "ef2426da-767d-454a-afdb-c48b3cc6e428",
     "packageName": "HelloWorld_2",
     "developer": {
         "name": "bewave",
@@ -23,13 +23,18 @@
         "full": "Fake GSKED for testing custom app in teams"
     },
     "accentColor": "#FFFFFF",
-    "configurableTabs": [
+    "staticTabs": [
         {
-            "configurationUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/config.html",
-            "canUpdateConfiguration": true,
+            "entityId": "7e2fed5b-1be5-4efb-b40d-b8256150b0f6",
             "scopes": [
-                "team"
-            ]
+                "personal"
+            ],
+            "context":[
+                "personalTab",
+                "channelTab"
+            ],
+            "name": "GSKED",
+            "contentUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com"
         }
     ],
     "permissions": [

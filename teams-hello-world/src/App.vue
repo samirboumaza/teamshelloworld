@@ -38,7 +38,7 @@
           </span>
         </div>
       </v-app-bar>
-
+      {{ token }}
 
       <!-- Sizes your content based upon application components -->
       <v-main>
@@ -130,6 +130,7 @@ export default {
   name: "App",
   data() {
     return {
+      token:{},
       user: '',
       dialog: false,
       taskList: [
@@ -150,7 +151,8 @@ export default {
     };
   },
 
-  beforeCreate() {
+ async beforeCreate() {
+    await this.getToken()
     microsoftTeams.initialize()
   },
   mounted() {
@@ -160,6 +162,14 @@ export default {
     this.getContext()
   },
   methods: {
+
+   async getToken(){
+      const authTokenRequest = {
+        successCallback: (result)=> { console.log("Success: " + result); },
+        failureCallback: (error)=> { console.log("Failure: " + error); }
+      };
+      this.token = await microsoftTeams.authentication.getAuthToken(authTokenRequest);
+    },
     getContext() {
       microsoftTeams.getContext((context) => {
         this.tabContext = context
