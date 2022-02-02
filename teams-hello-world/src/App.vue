@@ -4,26 +4,8 @@
       <v-card class="fill-height rounded-sm mt-13">
         <v-navigation-drawer
             permanent
-            expand-on-hover
+            width="50px"
         >
-          <v-list>
-            <v-list-item class="px-2">
-              <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
-              </v-list-item-avatar>
-            </v-list-item>
-
-            <v-list-item link>
-              <v-list-item-content>
-                <v-list-item-title class="text-h6">
-                  Sandra Adams
-                </v-list-item-title>
-                <v-list-item-subtitle>{{ tabContext.userPrincipalName }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-
-          <v-divider></v-divider>
 
           <v-list
               nav
@@ -33,27 +15,30 @@
               <v-list-item-icon>
                 <v-icon>mdi-folder</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>My Files</v-list-item-title>
+
             </v-list-item>
             <v-list-item link>
               <v-list-item-icon>
                 <v-icon>mdi-account-multiple</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Shared with me</v-list-item-title>
             </v-list-item>
             <v-list-item link>
               <v-list-item-icon>
                 <v-icon>mdi-star</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>Starred</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-navigation-drawer>
       </v-card>
 
 
-      <v-app-bar class='text-h4 elevation-0' color="primary" app>
-        Test Teams app
+      <v-app-bar class='text-h4 elevation-0' style="color: white" color="primary" app>
+        <div style="width: 100%" class="d-flex justify-space-between">
+          <span class="d-flex">Fake GSKED Teams app</span>
+          <span class="d-flex subtitle-2">
+            {{ tabContext.userPrincipalName }}
+          </span>
+        </div>
       </v-app-bar>
 
 
@@ -61,30 +46,26 @@
       <v-main>
         <!-- Provides the application the proper gutter -->
         <v-container fluid>
-{{user}}
+
           <v-card color="grey lighten-2" class="pa-3">
             <v-card-title>
               To do list
             </v-card-title>
             <v-card-subtitle>draft version</v-card-subtitle>
 
-
-            <v-card class="mb-4" v-for="(task, index) in taskList" :key="index">
-              <v-card-title class="d-flex justify-space-between ">
-                <span class="d-flex" :class="{'text-decoration-line-through': task.done}">  {{ task.task }} </span>
-                <div class="d-flex">
-                  <v-checkbox v-model="task.done" hide-details class="ma-0"></v-checkbox>
-                  <v-btn icon small>
-                    <v-icon @click="taskList.splice(index, 1)">
-                      mdi-close
-                    </v-icon>
-
-                  </v-btn>
-                </div>
-              </v-card-title>
-
-            </v-card>
-
+              <v-card class="mb-4 list-item" v-for="(task, index) in taskList" :key="`${index}`">
+                <v-card-title class="d-flex justify-space-between ">
+                  <span class="d-flex" :class="{'text-decoration-line-through': task.done}">  {{ task.task }} </span>
+                  <div class="d-flex">
+                    <v-checkbox v-model="task.done" hide-details class="ma-0"></v-checkbox>
+                    <v-btn icon small>
+                      <v-icon @click="taskList.splice(index, 1)">
+                        mdi-close
+                      </v-icon>
+                    </v-btn>
+                  </div>
+                </v-card-title>
+              </v-card>
           </v-card>
 
           <div class="text-center mt-3" style="width: 100%; height: 600px">
@@ -99,7 +80,7 @@
                     v-bind="attrs"
                     v-on="on"
                 >
-                  Click Me
+                  open video
                 </v-btn>
               </template>
 
@@ -151,7 +132,7 @@ export default {
   name: "App",
   data() {
     return {
-      user:'',
+      user: '',
       dialog: false,
       taskList: [
         {"task": "HTML I", "done": true},
@@ -178,12 +159,10 @@ export default {
     fetch('https://graph.microsoft.com/v1.0/me')
         .then(response => response.json())
         .then(data => this.user = data);
-
     this.getContext()
   },
   methods: {
     getContext() {
-
       microsoftTeams.getContext((context) => {
         this.tabContext = context
       })
@@ -191,3 +170,20 @@ export default {
   }
 };
 </script>
+
+<style>
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
