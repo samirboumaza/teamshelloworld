@@ -6,7 +6,6 @@
             permanent
             width="50px"
         >
-
           <v-list
               nav
               dense
@@ -30,7 +29,6 @@
           </v-list>
         </v-navigation-drawer>
       </v-card>
-
 
       <v-app-bar class='text-h4 elevation-0' style="color: white" color="primary" app>
         <div style="width: 100%" class="d-flex justify-space-between">
