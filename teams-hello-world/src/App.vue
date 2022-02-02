@@ -51,7 +51,7 @@
             </v-card-title>
             <v-card-subtitle>draft version</v-card-subtitle>
 
-              <v-card class="mb-4 list-item" v-for="(task, index) in taskList" :key="`${index}`">
+              <v-card class="mb-4" v-for="(task, index) in taskList" :key="`${index}`">
                 <v-card-title class="d-flex justify-space-between ">
                   <span class="d-flex" :class="{'text-decoration-line-through': task.done}">  {{ task.task }} </span>
                   <div class="d-flex">
@@ -168,20 +168,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */
-{
-  opacity: 0;
-  transform: translateY(30px);
-}
-</style>
