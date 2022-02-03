@@ -1,14 +1,14 @@
 {
-    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.11",
+    "$schema": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-app-schema/preview/DevPreview/MicrosoftTeams.schema.json",
+    "manifestVersion": "devPreview",
     "version": "1.0.1",
-    "id": "ef2426da-767d-454a-afdb-c48b3cc6e428",
+    "id": "ef2426da-767d-454a-afdb-c48b3cc6e430",
     "packageName": "HelloWorld_2",
     "developer": {
         "name": "bewave",
-        "websiteUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/",
-        "privacyUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/",
-        "termsOfUseUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com/"
+        "websiteUrl": "http://localhost:8080/",
+        "privacyUrl": "http://localhost:8080/",
+        "termsOfUseUrl": "http://localhost:8080/"
     },
     "icons": {
         "color": "color.png",
@@ -34,7 +34,7 @@
                 "channelTab"
             ],
             "name": "GSKED",
-            "contentUrl": "https://main.d2upq9hjl2r2ly.amplifyapp.com"
+            "contentUrl": "http://localhost:8080/"
         }
     ],
     "permissions": [
@@ -42,6 +42,6 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "main.d2upq9hjl2r2ly.amplifyapp.com"
+        "http://localhost:8080/"
     ]
 }
