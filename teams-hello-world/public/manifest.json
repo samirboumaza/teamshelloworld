@@ -1,14 +1,14 @@
 {
-    "$schema": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-app-schema/preview/DevPreview/MicrosoftTeams.schema.json",
-    "manifestVersion": "devPreview",
-    "version": "1.0.3",
-    "id": "ef2426da-767d-454a-afdb-c48b3cc6e435",
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.11/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.11",
+    "version": "1.0.14",
+    "id": "ef2426da-767d-454a-afdb-c48b3cc6e442",
     "packageName": "HelloWorld_2",
     "developer": {
         "name": "bewave",
-        "websiteUrl": "https://19cf-70-55-84-180.ngrok.io ",
-        "privacyUrl": "https://19cf-70-55-84-180.ngrok.io ",
-        "termsOfUseUrl": "https://19cf-70-55-84-180.ngrok.io "
+        "websiteUrl": "https://19cf-70-55-84-180.ngrok.io",
+        "privacyUrl": "https://19cf-70-55-84-180.ngrok.io",
+        "termsOfUseUrl": "https://19cf-70-55-84-180.ngrok.io"
     },
     "icons": {
         "color": "color.png",
@@ -29,12 +29,8 @@
             "scopes": [
                 "personal"
             ],
-            "context":[
-                "personalTab",
-                "channelTab"
-            ],
             "name": "GSKED",
-            "contentUrl": "https://19cf-70-55-84-180.ngrok.io "
+            "contentUrl": "https://19cf-70-55-84-180.ngrok.io/sso"
         }
     ],
     "permissions": [
@@ -42,6 +38,10 @@
         "messageTeamMembers"
     ],
     "validDomains": [
-        "  https://19cf-70-55-84-180.ngrok.io  "
-    ]
+        "https://19cf-70-55-84-180.ngrok.io"
+    ],
+    "webApplicationInfo": {
+        "id": "69454f0c-36a1-42e9-a7e5-1f453a124b41",
+        "resource": "api://19cf-70-55-84-180.ngrok.io/69454f0c-36a1-42e9-a7e5-1f453a124b41"
+    }
 }
