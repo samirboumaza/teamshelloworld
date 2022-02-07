@@ -150,7 +150,7 @@ export default {
         {title: 'Dashboard', icon: 'mdi-view-dashboard'},
         {title: 'Account', icon: 'mdi-account-box'},
         {title: 'Admin', icon: 'mdi-gavel'},
-      ],// Hide mobile side menu by default
+      ],
     };
   },
 
@@ -160,8 +160,6 @@ export default {
   async mounted() {
     this.getContext()
    await this.getToken()
-
-
 
   },
   methods: {
@@ -215,35 +213,6 @@ export default {
           .catch((error) => {
             console.error('Error:', error);
           });
-
-      // const url = "https://login.microsoftonline.com/4a8567aa-3a72-4dbd-91f9-b0a141b206f1/v2.0";
-      // const params = {
-      //   "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      //   "client_id": '69454f0c-36a1-42e9-a7e5-1f453a124b41',
-      //   "client_secret": 'DDL7Q~ggBz2ZFpmeuY25pB_QSBhbcgom_-IlR',
-      //   "scope": 'access_as_user',
-      //   "requested_token_use": "on_behalf_of",
-      //   "assertion": this.token
-      // };
-      // fetch(url, {
-      //   method: "POST",
-      //   body: this.toQueryString(params),
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/x-www-form-urlencoded"
-      //   },
-      //   mode: 'cors',
-      // }).then(result => {
-      //   if (result.status !== 200) {
-      //     result.json().then(json => {
-      //       console.log('error: ', json)
-      //     });
-      //   } else {
-      //     result.json().then(json => {
-      //       console.log('Success: ', json)
-      //     });
-      //   }
-      // });
     },
 
     toQueryString(queryParams) {
