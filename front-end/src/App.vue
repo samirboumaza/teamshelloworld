@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-container fluid class="fill-height pl-0">
+
       <v-card class="fill-height rounded-sm mt-13">
         <v-navigation-drawer
             permanent
@@ -42,6 +43,7 @@
 
       <!-- Sizes your content based upon application components -->
       <v-main>
+        <div style="width: 800px">  <pre>{{ userInfo }}</pre></div>
         <!-- Provides the application the proper gutter -->
         <v-container fluid>
           <v-card color="grey lighten-2" class="pa-3">
@@ -159,6 +161,8 @@ export default {
     this.getContext()
    await this.getToken()
 
+
+
   },
   methods: {
 
@@ -186,8 +190,7 @@ export default {
       const authTokenRequest = {
         successCallback: async (result) => {
           console.log("Success: " + result);
-          this.getAuthentificaionToken()
-          //this.userInfo = await this.getUserProfile(result)
+          this.getAuthentificaionToken(result)
         },
         failureCallback: (error) => {
           console.log("Failure: " + error);
@@ -202,36 +205,45 @@ export default {
         this.tabContext = JSON.stringify(context, null, '\t')
       })
     },
-    getAuthentificaionToken() {
-      const url = "https://login.microsoftonline.com/4a8567aa-3a72-4dbd-91f9-b0a141b206f1/v2.0";
-      const params = {
-        "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
-        "client_id": '69454f0c-36a1-42e9-a7e5-1f453a124b41',
-        "client_secret": 'DDL7Q~ggBz2ZFpmeuY25pB_QSBhbcgom_-IlR',
-        "scope": 'access_as_user',
-        "requested_token_use": "on_behalf_of",
-        "assertion": this.token
-      };
-      fetch(url, {
-        method: "POST",
-        body: this.toQueryString(params),
-        headers: {
-          "Access-Control-Allow-Origin": "https://19cf-70-55-84-180.ngrok.io/",
-          Accept: "application/json",
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        mode: 'cors',
-      }).then(result => {
-        if (result.status !== 200) {
-          result.json().then(json => {
-            console.log('error: ', json)
+    getAuthentificaionToken(token) {
+      fetch(`http://localhost:3030/userProfile?token=${token}`)
+          .then(async response => {
+            const temp = await response.json()
+            this.userInfo =JSON.stringify(JSON.parse(temp), null, '\t')
+            console.log(this.userInfo)
+          })
+          .catch((error) => {
+            console.error('Error:', error);
           });
-        } else {
-          result.json().then(json => {
-            console.log('Success: ', json)
-          });
-        }
-      });
+
+      // const url = "https://login.microsoftonline.com/4a8567aa-3a72-4dbd-91f9-b0a141b206f1/v2.0";
+      // const params = {
+      //   "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      //   "client_id": '69454f0c-36a1-42e9-a7e5-1f453a124b41',
+      //   "client_secret": 'DDL7Q~ggBz2ZFpmeuY25pB_QSBhbcgom_-IlR',
+      //   "scope": 'access_as_user',
+      //   "requested_token_use": "on_behalf_of",
+      //   "assertion": this.token
+      // };
+      // fetch(url, {
+      //   method: "POST",
+      //   body: this.toQueryString(params),
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/x-www-form-urlencoded"
+      //   },
+      //   mode: 'cors',
+      // }).then(result => {
+      //   if (result.status !== 200) {
+      //     result.json().then(json => {
+      //       console.log('error: ', json)
+      //     });
+      //   } else {
+      //     result.json().then(json => {
+      //       console.log('Success: ', json)
+      //     });
+      //   }
+      // });
     },
 
     toQueryString(queryParams) {
