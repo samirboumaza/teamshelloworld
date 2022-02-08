@@ -68,7 +68,8 @@ app.use('/userProfile',(req, res) => {
             "Authorization": "Bearer " + result.accessToken
           },
         }).then(async (response) => {
-          if (response.ok) {
+      console.log(response);
+      if (response.ok) {
             const resp = await response.text()
             res.json(resp);
           } else {
